@@ -57,3 +57,65 @@ class Solution {
 
     }
 }
+
+// ********************************** Using Bottom-Up Approach (Constant Space) **************************
+
+// class Solution {
+
+//     public int rob(int[] nums) {
+
+//         int n = nums.length;
+
+//         if(n == 1) return nums[0];
+
+//         // Case 1 -> stealing first house, we have to skip last house
+
+//         int res1 = 0;
+
+//         int prevPrev = 0;
+
+//         int prev = 0;
+
+//         for(int i=1; i<=n-1; i++) {
+
+//             int skip = prev;
+
+//             int steal = nums[i - 1] + prevPrev;
+
+//             int temp = Math.max(skip, steal);
+
+//             res1 = Math.max(res1, temp);
+
+//             prevPrev = prev;
+
+//             prev = temp;
+//         }
+
+//         // Case 2 -> skipping first house and starting stealing from second house
+
+//         int res2 = 0;
+
+//         prevPrev = 0;
+
+//         prev = 0; // Skipping first house so amount collected till the first house is 0
+
+//         for(int i=2; i<=n ; i++) {
+
+//             int skip = prev;
+
+//             int steal = nums[i - 1] + prevPrev;
+
+//             int temp = Math.max(skip, steal);
+
+//             res2 = Math.max(res2, temp);
+
+//             prevPrev = prev;
+
+//             prev = temp;
+//         }
+
+//         return Math.max(res1, res2);
+
+
+//     }
+// }
