@@ -23,3 +23,32 @@ class Solution {
         
     }
 }
+
+
+// // ****************************************** Using Bottom up Approach (Constant Space) *************************
+
+// class Solution {
+
+//     public int rob(int[] nums) {
+
+//         int prevPrev = 0;
+
+//         int prev = 0;
+
+//         for(int i=1; i<=nums.length; i++) {
+
+//             int steal = nums[i - 1] + prevPrev;
+
+//             int skip = prev;
+
+//             int temp = Math.max(steal, skip);
+
+//             prevPrev = prev;
+
+//             prev = temp;
+//         }
+
+//         return prev;
+        
+//     }
+// }
